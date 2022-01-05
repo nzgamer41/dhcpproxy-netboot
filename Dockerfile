@@ -1,5 +1,6 @@
 FROM alpine
-RUN apk --no-cache add dnsmasq
+RUN apk --no-cache add dnsmasq ca-certificates wget
+RUN update-ca-certificates
 
 COPY dnsmasq.conf /etc/dnsmasq.conf
 COPY startup.sh /startup.sh
